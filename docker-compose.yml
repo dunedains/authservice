@@ -1,0 +1,16 @@
+services:
+  oracle:
+    image: gvenzl/oracle-xe:21-slim
+    container_name: authservice-db
+    ports:
+      - "1521:1521"
+    environment:
+      ORACLE_PASSWORD: oracle
+      APP_USER: authservice
+      APP_USER_PASSWORD: authservice
+    healthcheck:
+      test: ["CMD", "healthcheck.sh"]
+      interval: 10s
+      timeout: 5s
+      retries: 20
+      start_period: 60s
