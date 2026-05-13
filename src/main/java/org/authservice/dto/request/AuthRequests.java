@@ -16,7 +16,7 @@ public class AuthRequests {
     public record RegisterRequest(
             @NotBlank(message = "El nombre es obligatorio")
             @Size(min = 2, max = 100, message = "El nombre debe tener entre 2 y 100 caracteres")
-            String fisrtname,
+            String firstname,
             @NotBlank(message = "El apellido es obligatorio")
             @Size(min = 2, max = 100, message = "El apellido debe tener entre 2 y 100 caracteres")
             String lastname,
@@ -35,6 +35,6 @@ public class AuthRequests {
 
     public record LogoutRequest(
             @NotBlank(message = "El token es obligatorio")
-            String refeshToken
+            String refreshToken
     ) {}
 }

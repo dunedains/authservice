@@ -48,7 +48,7 @@ public class AuthService {
         }
 
         User user = User.builder()
-                .firstName(request.fisrtname())
+                .firstName(request.firstname())
                 .lastName(request.lastname())
                 .email(request.email())
                 .password(passwordEncoder.encode(request.password()))
@@ -101,7 +101,7 @@ public class AuthService {
     @Transactional
     public MessageResponse logout(LogoutRequest request) {
         RefreshToken refreshToken = refreshTokenRepository
-                .findByToken(request.refeshToken())
+                .findByToken(request.refreshToken())
                 .orElseThrow(() -> new AuthExeption("Refresh token no encontrado"));
 
         refreshToken.setRevoked(true);
